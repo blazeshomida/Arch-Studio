@@ -7,8 +7,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@use "typography" as type;
-
 @layer reset {
   @include reset.generate-reset;
 }

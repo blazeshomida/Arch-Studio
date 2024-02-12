@@ -20,6 +20,13 @@ export default {
         surface: "hsl(var(--clr-surface) / <alpha-value>)",
         container: "hsl(var(--clr-container) / <alpha-value>)",
       },
+      fontSize: {
+        "heading-xl": "var(--fs-900)",
+        "heading-lg": "var(--fs-700)",
+        "heading-md": "var(--fs-600)",
+        "heading-sm": "var(--fs-500)",
+        body: "var(--fs-400)",
+      },
     },
   },
   plugins: [],
