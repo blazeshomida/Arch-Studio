@@ -7,6 +7,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@use "typography" as type;
+
 @layer reset {
   @include reset.generate-reset;
 }
@@ -19,6 +21,7 @@
     @include colors.generate-color-props;
     @include tokens.generate-tokens;
 
+    @include colors.generate-color-props;
     /* Typography */
     @include type.generate-typography;
   }
