@@ -13,6 +13,7 @@
 
 # build output
 dist/
+.css/
 
 # generated types
 .astro/
