@@ -1,5 +1,12 @@
 @use "reset";
 @use "colors";
+@use "tokens";
+@use "typography" as type;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @use "typography" as type;
 
 @layer reset {
@@ -9,6 +16,11 @@
 @layer base {
   :root {
     /* Colors */
+    --clr-white: 0 0% 100%;
+    --clr-black: 0 0% 0%;
+    @include colors.generate-color-props;
+    @include tokens.generate-tokens;
+
     @include colors.generate-color-props;
     /* Typography */
     @include type.generate-typography;
