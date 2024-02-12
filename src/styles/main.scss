@@ -2,6 +2,7 @@
 @use "colors";
 @use "tokens";
 @use "typography" as type;
+@use "breakpoints" as bp;
 
 @tailwind base;
 @tailwind components;
@@ -22,5 +23,32 @@
     @include colors.generate-color-props;
     /* Typography */
     @include type.generate-typography;
+  }
+}
+
+@layer components {
+  .page-grid {
+    --page-padding: 1.5rem;
+    --content-max-width: 69.375rem;
+    display: grid;
+    grid-template-columns:
+      [page-start] minmax(var(--page-padding), 1fr)
+      [content-start] min(
+        calc(100% - (var(--page-padding) * 2)),
+        var(--content-max-width)
+      )
+      [content-end]
+      minmax(var(--page-padding), 1fr) [page-end];
+    grid-template-rows: auto 1fr auto;
+
+    @media (width > bp.$tablet) {
+      --page-padding: 5.62rem;
+    }
+  }
+
+  .page-subgrid {
+    display: grid;
+    grid-column: page;
+    grid-template-columns: subgrid;
   }
 }
