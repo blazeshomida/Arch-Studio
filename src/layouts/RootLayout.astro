@@ -16,7 +16,45 @@ const { title, description } = Astro.props;
     <BaseHead title={title} description={description} />
     <slot name="head" />
   </head>
-  <body>
-    <slot />
+  <body class="page-grid">
+    <header>
+      <nav class="col-[content] flex">
+        <a href="#">Logo</a>
+        <ul class="flex">
+          <li><a href="">link 1</a></li>
+          <li><a href="">link 1</a></li>
+          <li><a href="">link 1</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <div class="col-[content]">
+        <a href="">Link 1</a>
+        <a href="">Link 1</a>
+        <a href="">Link 1</a>
+        <a href="">Link 1</a>
+      </div>
+    </footer>
+    <style>
+      .page-grid {
+        display: grid;
+        grid-template-columns:
+          [page-start] 2rem
+          [content-start] 75ch [content-end]
+          2rem [page-end];
+        grid-template-rows: auto 1fr auto;
+      }
+
+      header,
+      main,
+      footer {
+        display: grid;
+        grid-column: page;
+        grid-template-columns: subgrid;
+      }
+    </style>
   </body>
 </html>
