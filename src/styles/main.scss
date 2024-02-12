@@ -1,0 +1,16 @@
+@use "reset";
+@use "colors";
+@use "typography" as type;
+
+@layer reset {
+  @include reset.generate-reset;
+}
+
+@layer base {
+  :root {
+    /* Colors */
+    @include colors.generate-color-props;
+    /* Typography */
+    @include type.generate-typography;
+  }
+}
