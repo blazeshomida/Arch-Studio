@@ -17,7 +17,7 @@ const { title, description } = Astro.props;
     <slot name="head" />
   </head>
   <body class="page-grid">
-    <header>
+    <header class="page-subgrid">
       <nav class="col-[content] flex">
         <a href="#">Logo</a>
         <ul class="flex">
@@ -26,10 +26,10 @@ const { title, description } = Astro.props;
         </ul>
       </nav>
     </header>
-    <main>
+    <main class="page-subgrid">
       <slot />
     </main>
-    <footer>
+    <footer class="page-subgrid">
       <div class="col-[content]">
         <a href="">Link 1</a>
         <a href="">Link 1</a>
@@ -37,23 +37,6 @@ const { title, description } = Astro.props;
         <a href="">Link 1</a>
       </div>
     </footer>
-    <style>
-      .page-grid {
-        display: grid;
-        grid-template-columns:
-          [page-start] 2rem
-          [content-start] 75ch [content-end]
-          2rem [page-end];
-        grid-template-rows: auto 1fr auto;
-      }
-
-      header,
-      main,
-      footer {
-        display: grid;
-        grid-column: page;
-        grid-template-columns: subgrid;
-      }
-    </style>
+    <style></style>
   </body>
 </html>

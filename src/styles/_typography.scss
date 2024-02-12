@@ -17,8 +17,8 @@
 
   @include generate-sizes($mobile-sizes);
 
-  @media (min-width: bp.$tablet) {
-    @include generate-sizes($desktop-sizes);
+  @media (width > bp.$mobile) {
+    @include generate-sizes($tablet-sizes);
   }
 }
 
@@ -28,7 +28,7 @@ $families: (
 
 $weights: (500, 700);
 
-$desktop-sizes: (
+$tablet-sizes: (
   400: "1.125rem",
   500: "2rem",
   600: "4.5rem",
