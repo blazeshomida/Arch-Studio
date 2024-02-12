@@ -1,0 +1,42 @@
+@use "sass:color";
+
+@function process-color-parts($raw-value) {
+  $raw-h: color.hue($raw-value);
+  $raw-s: color.saturation($raw-value);
+  $raw-l: color.lightness($raw-value);
+  @return $raw-h $raw-s $raw-l;
+}
+
+/*
+STRUCTURE:
+$map-name: (
+  color-name: (
+    level-100: color-value,
+    level-200: color-value,
+  ),
+)
+*/
+
+@mixin generate-color-props {
+  @each $color, $levels in $main-colors {
+    @each $level, $raw-value in $levels {
+      $color-level: #{$color}-#{$level};
+      $value: process-color-parts($raw-value);
+
+      --clr-#{$color-level}: #{$value};
+    }
+  }
+}
+
+$main-colors: (
+  neutral: (
+    100: hsla(224, 14%, 12%, 1),
+    300: hsla(224, 6%, 40%, 1),
+    400: hsla(224, 8%, 53%, 1),
+    600: hsla(224, 17%, 82%, 1),
+    900: hsla(224, 23%, 94%, 1),
+  ),
+  red: (
+    400: hsla(0, 69%, 61%, 1),
+  ),
+);
