@@ -23,6 +23,11 @@
 7. Work on styling
 8. Work on animations
 
+## Breakpoints
+
+tablet: 376px
+desktop: 769px
+
 ## Colors
 
 ### Neutral

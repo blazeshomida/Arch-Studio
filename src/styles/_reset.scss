@@ -1,0 +1,84 @@
+@mixin generate-reset {
+  /* CSS Reset
+Provides a consistent styling baseline across browsers.
+https://www.youtube.com/watch?v=cCAtD_BAHNw
+*/
+
+  /* Box-sizing border-box for all elements */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Reset margin and padding */
+  * {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+  }
+
+  /* HTML adjustments for color scheme preference and hanging punctuation */
+  html {
+    color-scheme: light dark;
+    hanging-punctuation: first last; /* Improves alignment of punctuation at line ends */
+  }
+
+  /* Ensure body covers the full viewport height dynamically */
+  body {
+    min-height: 100dvh; /* Adjusts for mobile UI changes */
+  }
+
+  /* Text wrapping for headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance; /* Balances line lengths for aesthetics */
+  }
+
+  /* Paragraph width and wrapping */
+  p {
+    max-width: 75ch; /* Enhances readability */
+    text-wrap: pretty; /* Experimental property for nicer wrapping: 
+  https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap */
+  }
+
+  /* Prevent text overflow */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    overflow-wrap: break-word;
+  }
+
+  /* Responsive media elements */
+  /* Check these out for more info:
+https://www.youtube.com/watch?v=345V2MU3E_w
+https://csswizardry.com/2023/09/the-ultimate-lqip-lcp-technique/
+*/
+  img,
+  picture,
+  svg,
+  video {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 1rem; /* Adds margin around shapes in text flow */
+  }
+
+  /* Smooth scrolling for anchor targets, respecting user's motion preferences */
+  @media (prefers-reduced-motion: no-preference) {
+    :has(:target) {
+      scroll-behavior: smooth;
+      scroll-padding-top: 3rem; /* Offset for fixed headers */
+    }
+  }
+}

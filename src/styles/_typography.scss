@@ -1,0 +1,45 @@
+@use "breakpoints" as bp;
+
+@mixin generate-sizes($size-map) {
+  @each $level, $value in $size-map {
+    --fs-#{$level}: #{$value};
+  }
+}
+
+@mixin generate-typography {
+  @each $level, $family in $families {
+    --ff-#{$level}: #{$family};
+  }
+
+  @each $weight in $weights {
+    --fw-#{$weight}: #{$weight};
+  }
+
+  @include generate-sizes($mobile-sizes);
+
+  @media (min-width: bp.$tablet) {
+    @include generate-sizes($desktop-sizes);
+  }
+}
+
+$families: (
+  primary: "'League Spartan', sans-serif",
+);
+
+$weights: (500, 700);
+
+$desktop-sizes: (
+  400: "1.125rem/1.5rem",
+  500: "2rem/2.5rem",
+  600: "4.5rem/4rem",
+  700: "6rem/5rem",
+  900: "15.625rem/12.5rem",
+);
+
+$mobile-sizes: (
+  400: "1.125rem/1.55rem",
+  500: "2rem/2.5rem",
+  600: "3rem/3.25rem",
+  700: "3rem/3.25rem",
+  900: "7.5rem/12.5rem",
+);
