@@ -1,5 +1,12 @@
 ---
-import RootLayout from "@layouts/Layout.astro";
+import RootLayout from "@/layouts/RootLayout.astro";
 ---
 
-<RootLayout title="Home" />
+<RootLayout title="Home" description="home description">
+  <section class="col-[content]">
+    <h1>Hello World</h1>
+  </section>
+  <section class="col-[page]">
+    <h2>Hello World</h2>
+  </section>
+</RootLayout>
