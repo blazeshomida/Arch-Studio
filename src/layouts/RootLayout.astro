@@ -18,7 +18,7 @@ const { title, description } = Astro.props;
     <slot name="head" />
   </head>
   <body class="page-grid bg-surface">
-    <header class="page-subgrid">
+    <header class="page-subgrid sticky top-0 z-50 bg-surface">
       <Nav />
     </header>
     <main class="page-subgrid">
@@ -32,5 +32,11 @@ const { title, description } = Astro.props;
         <a href="">Link 1</a>
       </div>
     </footer>
+    <div
+      id="overlay"
+      data-visible="false"
+      class="fixed inset-0 z-0 bg-black/50 data-[visible='false']:hidden"
+    >
+    </div>
   </body>
 </html>
