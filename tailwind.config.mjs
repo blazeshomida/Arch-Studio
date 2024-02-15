@@ -6,6 +6,7 @@ export default {
       screens: {
         mobile: "375px",
         tablet: "768px",
+        desktop: "1440px",
       },
       textColor: {
         heading: "hsl(var(--clr-heading) / <alpha-value>)",
@@ -19,6 +20,7 @@ export default {
       backgroundColor: {
         surface: "hsl(var(--clr-surface) / <alpha-value>)",
         container: "hsl(var(--clr-container) / <alpha-value>)",
+        "button-primary": "hsl(var(--clr-button-primary) / <alpha-value>)",
       },
       fontSize: {
         "heading-xl": "var(--fs-900)",
