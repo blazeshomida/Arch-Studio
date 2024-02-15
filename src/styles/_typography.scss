@@ -17,7 +17,7 @@
 
   @include generate-sizes($mobile-sizes);
 
-  @media (width > bp.$mobile) {
+  @media (width > bp.$tablet) {
     @include generate-sizes($tablet-sizes);
   }
 }

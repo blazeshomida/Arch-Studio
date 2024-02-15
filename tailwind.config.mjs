@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       screens: {
-        tablet: "376px",
-        desktop: "769px",
+        mobile: "375px",
+        tablet: "768px",
       },
       textColor: {
         heading: "hsl(var(--clr-heading) / <alpha-value>)",
