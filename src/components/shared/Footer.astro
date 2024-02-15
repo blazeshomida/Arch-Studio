@@ -1,0 +1,24 @@
+---
+import LogoAlt from "@components/svgs/LogoAlt.astro";
+---
+
+<footer
+  class="relative col-[page] grid-cols-[auto_1fr] tablet:grid tablet:grid-flow-col desktop:col-[content]"
+>
+  <LogoAlt
+    class="left-1/2 top-0 max-tablet:absolute max-tablet:-translate-x-1/2 max-tablet:-translate-y-1/2"
+  />
+  <div
+    class="grid items-center bg-gradient-to-r from-[hsl(var(--clr-container))] from-90% to-transparent to-90% max-tablet:bg-container max-tablet:py-12 tablet:grid-flow-col"
+  >
+    <ul class="grid gap-8 p-8 text-center font-bold text-nav tablet:flex">
+      <li><a href="">Portfolio</a></li>
+      <li><a href="">About Us</a></li>
+      <li><a href="">Contact</a></li>
+    </ul>
+    <button
+      class="place-self-center bg-button-primary px-10 py-6 tablet:justify-self-end"
+      >See Our Portfolio</button
+    >
+  </div>
+</footer>
