@@ -1,7 +1,8 @@
 ---
 import "@styles/main.scss";
 import BaseHead from "@components/BaseHead.astro";
-
+import Logo from "@components/svgs/Logo.astro";
+import IconHamburger from "@components/svgs/IconHamburger.astro";
 interface Props {
   title: string;
   description: string;
@@ -12,18 +13,26 @@ const { title, description } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head>
+  <head style="color-scheme: light;">
     <BaseHead title={title} description={description} />
     <slot name="head" />
   </head>
-  <body class="page-grid">
+  <body class="page-grid bg-surface">
     <header class="page-subgrid">
-      <nav class="col-[content] flex">
-        <a href="#">Logo</a>
-        <ul class="flex">
-          <li><a href="">link 1</a></li>
-          <li><a href="">link 1</a></li>
-        </ul>
+      <nav
+        class="col-[content] grid grid-cols-2 items-center gap-8 py-14 tablet:grid-cols-12"
+      >
+        <a href="#" class="text-heading tablet:col-span-3"><Logo /></a>
+        <div
+          class="col-start-[-2] col-end-[-1] justify-self-end text-nav tablet:col-start-4"
+        >
+          <button class="tablet:hidden"><IconHamburger /></button>
+          <ul class="hidden gap-16 tablet:flex">
+            <li><a href="">Profile</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </div>
       </nav>
     </header>
     <main class="page-subgrid">
