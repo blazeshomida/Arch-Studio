@@ -1,43 +1,44 @@
 ---
 import Logo from "@components/svgs/Logo.astro";
 import IconHamburger from "@components/svgs/IconHamburger.astro";
+import IconClose from "@components/svgs/IconClose.astro";
 ---
 
 <nav
   class="relative col-[content] grid grid-cols-2 items-center gap-8 py-8
   tablet:grid-cols-12 tablet:py-14"
 >
-  <a href="#" class="text-heading tablet:col-span-3"><Logo /></a>
+  <a href="#" class="tablet:col-span-3"><Logo /></a>
   <div
-    class="col-start-[-2] col-end-[-1] text-nav
+    data-open="false"
+    data-nav="group"
+    class="group col-start-[-2] col-end-[-1] text-nav
   max-tablet:justify-self-end
   max-tablet:text-heading-sm max-tablet:font-bold max-tablet:text-heading
   tablet:col-start-4"
   >
-    <button type="button" data-nav="trigger" class="tablet:hidden"
-      ><IconHamburger /></button
-    >
     <ul
-      data-nav="list"
-      data-open="false"
-      class="inset-x-0 top-full max-tablet:absolute
+      class="inset-x-0 top-full gap-4 max-tablet:absolute
     max-tablet:bg-container max-tablet:px-12
-    max-tablet:py-10 max-tablet:data-[open='false']:hidden
+    max-tablet:py-10 max-tablet:group-data-[open='false']:hidden
     tablet:flex tablet:gap-16"
     >
       <li><a href="">Profile</a></li>
       <li><a href="">About Us</a></li>
       <li><a href="">Contact</a></li>
     </ul>
+    <button type="button" data-nav="trigger" class="tablet:hidden">
+      <IconHamburger class="group-data-[open='true']:hidden" />
+      <IconClose class="group-data-[open='false']:hidden" />
+    </button>
   </div>
 </nav>
 <script>
-  const navTrigger = document.querySelector<HTMLButtonElement>(
-    "[data-nav='trigger']",
-  );
-  const navList = document.querySelector<HTMLUListElement>("[data-nav='list']");
-  navTrigger?.addEventListener("click", () => {
-    const isOpen = navList?.getAttribute("data-open") === "true";
-    navList?.setAttribute("data-open", `${!isOpen}`);
-  });
+  const navTrigger = document.querySelector("[data-nav='trigger']");
+  const navGroup = document.querySelector("[data-nav='group']");
+  function handleTrigger() {
+    const isOpen = navGroup?.getAttribute("data-open") === "true";
+    navGroup?.setAttribute("data-open", `${!isOpen}`);
+  }
+  navTrigger?.addEventListener("click", handleTrigger);
 </script>
